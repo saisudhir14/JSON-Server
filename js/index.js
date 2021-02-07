@@ -1,5 +1,7 @@
 //JavaScript for index.html
 
+const container = document.querySelector('.blogs');
+
 const renderPosts = async() =>{
     //create a URI that makes a request to an endpoint
     let uri = 'http://localhost:3000/posts';
@@ -9,6 +11,7 @@ const renderPosts = async() =>{
 
    //output in DOM now!
    let template = '';
+   posts.forEach(post => {
    //append the template += and use templateString to output the dynamic String using the template string `` ${}
     template += `
      <div class = "post">
@@ -18,6 +21,10 @@ const renderPosts = async() =>{
         <a href="/details.html"> read more...</a>
      </div>
     `
+});
+
+container.innerHTML = template;
+
 }
 
 window.addEventListener('DOMContentLoaded',() => renderPosts());
